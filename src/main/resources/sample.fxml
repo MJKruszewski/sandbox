@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<SplitPane dividerPositions="0.29797979797979796" prefHeight="780.0" prefWidth="1024.0"
+           xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="pl.sunflux.domain.world.controllers.WorldGeneratorController">
+    <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true">
+        <AnchorPane fx:id="mapPane">
+        </AnchorPane>
+    </ScrollPane>
+    <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+        <children>
+            <TextField fx:id="maxLand" text="0.5"/>
+            <TextField fx:id="nVertices" text="1024"/>
+            <TextField fx:id="seed" text="0"/>
+            <TextField fx:id="relaxation" text="10"/>
+
+            <Button fx:id="generateButton" onAction="#generateMap" text="Generate"/>
+            <Button fx:id="renderLandMass" onAction="#renderLandMass" text="Land mass"/>
+            <Button fx:id="renderElevation" onAction="#renderElevation" text="Elevation"/>
+        </children>
+        <padding>
+            <Insets left="150.0" right="150.0"/>
+        </padding>
+    </VBox>
+</SplitPane>
