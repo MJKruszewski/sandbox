@@ -6,24 +6,31 @@
 <?import javafx.scene.layout.VBox?>
 <SplitPane dividerPositions="0.29797979797979796" prefHeight="780.0" prefWidth="1024.0"
            xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="pl.sunflux.domain.world.controllers.WorldGeneratorController">
-    <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true">
-        <AnchorPane fx:id="mapPane">
+           fx:controller="pl.sunflux.sandbox.domain.world.controllers.WorldGeneratorController">
+    <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" prefWidth="500.0">
+        <AnchorPane id="mapPane" fx:id="mapPane">
         </AnchorPane>
     </ScrollPane>
-    <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
-        <children>
-            <TextField fx:id="maxLand" text="0.5"/>
-            <TextField fx:id="nVertices" text="1024"/>
-            <TextField fx:id="seed" text="0"/>
-            <TextField fx:id="relaxation" text="10"/>
+    <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="120.0">
+        <items>
+            <AnchorPane fx:id="tileInfoPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            </AnchorPane>
 
-            <Button fx:id="generateButton" onAction="#generateMap" text="Generate"/>
-            <Button fx:id="renderLandMass" onAction="#renderLandMass" text="Land mass"/>
-            <Button fx:id="renderElevation" onAction="#renderElevation" text="Elevation"/>
-        </children>
-        <padding>
-            <Insets left="150.0" right="150.0"/>
-        </padding>
-    </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                <children>
+                    <TextField fx:id="sitesAmount" text="8000"/>
+                    <TextField fx:id="graphBounds" text="2048"/>
+                    <TextField fx:id="seed" text="0"/>
+                    <TextField fx:id="relaxation" text="2"/>
+
+                    <Button fx:id="generateButton" onAction="#generateMap" text="Generate"/>
+                    <Button fx:id="renderLandMass" onAction="#renderLandMass" text="Land mass"/>
+                    <Button fx:id="renderElevation" onAction="#renderElevation" text="Elevation"/>
+                </children>
+                <padding>
+                    <Insets left="150.0" right="150.0"/>
+                </padding>
+            </VBox>
+        </items>
+    </SplitPane>
 </SplitPane>
