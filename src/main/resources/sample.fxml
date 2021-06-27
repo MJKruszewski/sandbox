@@ -2,19 +2,32 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <SplitPane dividerPositions="0.29797979797979796" prefHeight="780.0" prefWidth="1024.0"
            xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="pl.sunflux.sandbox.domain.world.controllers.WorldGeneratorController">
-    <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" prefWidth="500.0">
-        <AnchorPane id="mapPane" fx:id="mapPane">
+           fx:controller="pl.sunflux.sandbox.domain.world.ui.controllers.WorldGeneratorController">
+    <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" minWidth="800.0">
+        <AnchorPane id="mapPane" fx:id="mapPane" minWidth="500.0">
         </AnchorPane>
     </ScrollPane>
     <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="120.0">
         <items>
-            <AnchorPane fx:id="tileInfoPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-            </AnchorPane>
+            <TableView fx:id="tileData" prefHeight="200.0" prefWidth="200.0">
+                <columns>
+                    <TableColumn prefWidth="100.0" text="Title">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="title"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="100.0" text="Value">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="value"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
 
             <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
                 <children>
@@ -28,7 +41,7 @@
                     <Button fx:id="renderElevation" onAction="#renderElevation" text="Elevation"/>
                 </children>
                 <padding>
-                    <Insets left="150.0" right="150.0"/>
+                    <Insets left="20.0" right="20.0"/>
                 </padding>
             </VBox>
         </items>

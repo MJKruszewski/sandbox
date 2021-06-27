@@ -1,9 +1,10 @@
-package pl.sunflux.sandbox.domain.world.controllers;
+package pl.sunflux.sandbox.domain.world.ui.controllers;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -14,6 +15,7 @@ import pl.sunflux.sandbox.domain.world.WorldMapGenerator;
 import pl.sunflux.sandbox.domain.world.renderer.BiomeRenderer;
 import pl.sunflux.sandbox.domain.world.renderer.ElevationRenderer;
 import pl.sunflux.sandbox.domain.world.renderer.RendererInterface;
+import pl.sunflux.sandbox.domain.world.ui.components.TileInfo;
 
 public class WorldGeneratorController {
     public Button generateButton;
@@ -25,7 +27,8 @@ public class WorldGeneratorController {
     public ScrollPane scrollPane;
     public TextField graphBounds;
     public TextField sitesAmount;
-    public AnchorPane tileInfoPane;
+
+    public TableView<pl.sunflux.sandbox.domain.world.ui.components.TileInfo> tileData;
 
     private WorldMapGenerator worldMapGenerator = new WorldMapGenerator();
     private RendererInterface biomeRenderer = new BiomeRenderer();
@@ -54,12 +57,12 @@ public class WorldGeneratorController {
         biomeRenderer.apply(WorldMap.tiles);
 
         Platform.runLater(() -> {
-            Main.logger.debug("shapes1: " + WorldMap.mapShapes.size());
-
             WorldMap.tiles.parallelStream().filter(tile -> !tile.center.ocean).forEach(tile -> {
                 tile.graphic.setOnMouseEntered(event -> {
                     tile.graphic.setFill(Color.CYAN);
 
+                    tileData.getItems().clear();
+                    tileData.getItems().addAll(TileInfo.getInstance(tile));
                 });
                 tile.graphic.setOnMouseExited(event -> tile.graphic.setFill(tile.currentColor));
             });
