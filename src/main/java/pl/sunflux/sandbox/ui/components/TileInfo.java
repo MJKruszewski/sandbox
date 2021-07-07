@@ -1,4 +1,4 @@
-package pl.sunflux.sandbox.domain.world.ui.components;
+package pl.sunflux.sandbox.ui.components;
 
 import javafx.beans.property.SimpleStringProperty;
 import pl.sunflux.sandbox.domain.world.components.Tile;

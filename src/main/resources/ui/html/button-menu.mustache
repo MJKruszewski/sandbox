@@ -1,0 +1,20 @@
+<div id='RESPONSE_BOX'>
+    <div class='response-full-container'>
+        <div class='response-switcher left' id='switch_left'>
+            <b class='hotkey-icon'></b>&#60
+        </div>
+
+        <div class='response-container'>
+            {{#buttons}}
+                <div class='response-box {{getCssClass}}' id='option_{{id}}'>
+                    <b class='hotkey-icon {{getCssClass}}'>{{shortcut}}</b>
+                    {{title}}
+                </div>
+            {{/buttons}}
+        </div>
+
+        <div class='response-switcher right' id='switch_right'>
+            <b class='hotkey-icon'></b>&#62
+        </div>
+    </div>
+</div>

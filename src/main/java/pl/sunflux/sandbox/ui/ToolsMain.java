@@ -1,4 +1,4 @@
-package pl.sunflux.sandbox;
+package pl.sunflux.sandbox.ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,14 +8,14 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Main extends Application {
+public class ToolsMain extends Application {
     public static final Logger logger = LogManager.getRootLogger();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         logger.info("App started");
 
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("../../../sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(ToolsMain.class.getResource("../../../sample.fxml"));
         Region root = loader.load();
 
         Scene scene = new Scene(root);

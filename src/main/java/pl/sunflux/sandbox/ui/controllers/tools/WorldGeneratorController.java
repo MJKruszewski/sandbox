@@ -1,4 +1,4 @@
-package pl.sunflux.sandbox.domain.world.ui.controllers;
+package pl.sunflux.sandbox.ui.controllers.tools;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -8,14 +8,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import pl.sunflux.sandbox.Main;
-import pl.sunflux.sandbox.domain.game.WorldMap;
 import pl.sunflux.sandbox.domain.world.GeneratorOptions;
 import pl.sunflux.sandbox.domain.world.WorldMapGenerator;
 import pl.sunflux.sandbox.domain.world.renderer.BiomeRenderer;
 import pl.sunflux.sandbox.domain.world.renderer.ElevationRenderer;
 import pl.sunflux.sandbox.domain.world.renderer.RendererInterface;
-import pl.sunflux.sandbox.domain.world.ui.components.TileInfo;
+import pl.sunflux.sandbox.state.ApplicationSession;
+import pl.sunflux.sandbox.state.WorldMap;
+import pl.sunflux.sandbox.ui.components.TileInfo;
 
 public class WorldGeneratorController {
     public Button generateButton;
@@ -28,7 +28,7 @@ public class WorldGeneratorController {
     public TextField graphBounds;
     public TextField sitesAmount;
 
-    public TableView<pl.sunflux.sandbox.domain.world.ui.components.TileInfo> tileData;
+    public TableView<pl.sunflux.sandbox.ui.components.TileInfo> tileData;
 
     private WorldMapGenerator worldMapGenerator = new WorldMapGenerator();
     private RendererInterface biomeRenderer = new BiomeRenderer();
@@ -36,7 +36,7 @@ public class WorldGeneratorController {
 
     public void generateMap() {
         generateButton.setDisable(true);
-        Main.logger.info("start of generation");
+        ApplicationSession.logger.info("start of generation");
 
         GeneratorOptions generatorOptions = new GeneratorOptions();
 
@@ -72,7 +72,7 @@ public class WorldGeneratorController {
             });
 
             generateButton.setDisable(false);
-            Main.logger.info("generating done");
+            ApplicationSession.logger.info("generating done");
         });
 
     }

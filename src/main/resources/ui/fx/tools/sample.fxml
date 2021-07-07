@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <SplitPane dividerPositions="0.29797979797979796" prefHeight="780.0" prefWidth="1024.0"
            xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="pl.sunflux.sandbox.domain.world.ui.controllers.WorldGeneratorController">
+           fx:controller="pl.sunflux.sandbox.ui.controllers.tools.WorldGeneratorController">
     <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" minWidth="800.0">
         <AnchorPane id="mapPane" fx:id="mapPane">
         </AnchorPane>
