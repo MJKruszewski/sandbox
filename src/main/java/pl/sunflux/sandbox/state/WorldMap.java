@@ -1,4 +1,4 @@
-package pl.sunflux.sandbox.domain.game;
+package pl.sunflux.sandbox.state;
 
 import com.hoten.delaunay.voronoi.Center;
 import com.hoten.delaunay.voronoi.VoronoiGraph;

@@ -1,7 +1,7 @@
 package pl.sunflux.sandbox.domain.world.renderer;
 
-import pl.sunflux.sandbox.domain.game.WorldMap;
 import pl.sunflux.sandbox.domain.world.components.Tile;
+import pl.sunflux.sandbox.state.WorldMap;
 
 import java.util.Collection;
 

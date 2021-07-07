@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
-import pl.sunflux.sandbox.Main;
+import pl.sunflux.sandbox.ui.GameMain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,7 +64,7 @@ public class TestDriver extends Application {
         printInfo();
         ArrayList<Shape> img = createVoronoiGraph(GRAPH_BOUNDS, SITES_AMOUNT, LLOYD_RELAXATIONS, SEED, ALGORITHM).createMap();
 
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("../../sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(GameMain.class.getResource("../../sample.fxml"));
         Region root = loader.load();
 
         Scene scene = new Scene(root);

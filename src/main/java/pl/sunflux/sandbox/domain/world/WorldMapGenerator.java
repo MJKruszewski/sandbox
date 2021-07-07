@@ -10,10 +10,10 @@ import com.hoten.delaunay.voronoi.nodename.as3delaunay.Voronoi;
 import javafx.application.Platform;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
-import pl.sunflux.sandbox.Main;
-import pl.sunflux.sandbox.domain.game.WorldMap;
 import pl.sunflux.sandbox.domain.world.GeneratorOptions.AlgorithmType;
 import pl.sunflux.sandbox.domain.world.components.Tile;
+import pl.sunflux.sandbox.state.ApplicationSession;
+import pl.sunflux.sandbox.state.WorldMap;
 
 import java.util.Random;
 
@@ -33,7 +33,7 @@ public class WorldMapGenerator {
         Voronoi v = new Voronoi(generatorOptions.sitesAmount, generatorOptions.graphBounds, generatorOptions.graphBounds, r, null);
         GraphImpl graph = new GraphImpl(v, generatorOptions.lloydRelaxations, r, algorithm);
 
-        Main.logger.debug("centers: " + graph.centers.size());
+        ApplicationSession.logger.debug("centers: " + graph.centers.size());
 
         graph.centers.parallelStream().forEach(center -> {
             Polygon[] polygons = graph.createPolygons(center);
@@ -53,7 +53,7 @@ public class WorldMapGenerator {
             WorldMap.addPolygons(line);
         });
 
-        Main.logger.debug("shapes: " + WorldMap.mapShapes.size());
+        ApplicationSession.logger.debug("shapes: " + WorldMap.mapShapes.size());
         WorldMap.diagram = graph;
 
         Platform.runLater(() -> {

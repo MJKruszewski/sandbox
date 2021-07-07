@@ -4,7 +4,7 @@ package pl.sunflux.sandbox.domain.world.components;
 import com.hoten.delaunay.voronoi.Center;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Shape;
-import pl.sunflux.sandbox.domain.game.WorldMap;
+import pl.sunflux.sandbox.state.WorldMap;
 
 import java.util.HashSet;
 import java.util.Set;
